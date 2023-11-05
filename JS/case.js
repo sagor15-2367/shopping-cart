@@ -20,18 +20,20 @@ function updateCaseNumber(isIncrease) {
     caseNumberField.value = newCaseNumber;
     return newCaseNumber;
 }
-function updateCasePrice(newCaseNumber){
-    const caseTotalPrice=newCaseNumber*59;
-    const caseTotalElement=document.getElementById('case-total');
-    caseTotalElement.innerText=caseTotalPrice;
+function updateCasePrice(newCaseNumber) {
+    const caseTotalPrice = newCaseNumber * 59;
+    const caseTotalElement = document.getElementById('case-total');
+    caseTotalElement.innerText = caseTotalPrice;
 }
 document.getElementById('btn-case-plus').addEventListener('click', function () {
-    const newCaseNumber= updateCaseNumber(true);
+    const newCaseNumber = updateCaseNumber(true);
 
     updateCasePrice(newCaseNumber);
+    calculateSubTotal();
 })
 document.getElementById('btn-case-minus').addEventListener('click', function () {
-    const newCaseNumber= updateCaseNumber(false);
+    const newCaseNumber = updateCaseNumber(false);
 
     updateCasePrice(newCaseNumber)
+    calculateSubTotal();
 })
